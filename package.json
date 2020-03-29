@@ -1,0 +1,19 @@
+{
+  "name": "reimagined-garbanzo",
+  "version": "1.0.0",
+  "description": "Covid-19 Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "clone-data-source": "git clone https://github.com/CSSEGISandData/COVID-19.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertchow89/reimagined-garbanzo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertchow89/reimagined-garbanzo/issues"
+  },
+  "homepage": "https://github.com/robertchow89/reimagined-garbanzo#readme"
+}
