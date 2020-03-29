@@ -4,9 +4,9 @@
   "description": "Covid-19 Dashboard",
   "main": "dist/index.js",
   "scripts": {
-    "clone-data-source": "git clone https://github.com/CSSEGISandData/COVID-19.git",
+    "install-external-dependencies": "node ./installExternalDependencies.js",
     "clean": "rm -rf ./dist",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean & npm run install-external-dependencies",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node ."
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/robertchow89/reimagined-garbanzo#readme",
   "devDependencies": {
     "@types/node": "13.9.5",
+    "nodegit": "^0.26.5",
     "ts-node": "8.8.1",
     "typescript": "3.8.3"
   }
