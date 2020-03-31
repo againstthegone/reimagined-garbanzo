@@ -6,8 +6,8 @@
   "scripts": {
     "install-external-dependencies": "node ./installExternalDependencies.js",
     "clean": "rm -rf ./dist",
-    "prebuild": "npm run clean & npm run install-external-dependencies",
-    "build": "tsc",
+    "prebuild": "npm run install-external-dependencies",
+    "build": "tsc & cpy '**/*.html' '../dist/' --cwd=src --parents",
     "prestart": "npm run build",
     "start": "node ."
   },
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/robertchow89/reimagined-garbanzo#readme",
   "devDependencies": {
     "@types/node": "13.9.5",
-    "nodegit": "^0.26.5",
+    "cpy-cli": "3.1.0",
+    "nodegit": "0.26.5",
     "ts-node": "8.8.1",
     "typescript": "3.8.3"
   }
