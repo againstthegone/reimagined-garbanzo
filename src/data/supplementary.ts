@@ -1,7 +1,9 @@
-export default {
-    data: [
+import { CountryCaseData } from './CountryCaseData';
+
+export const data: CountryCaseData[] =
+    [
         {
-            country: 'China',
+            country: 'Mainland China',
             timeline: [
                 {
                     date: '31-12-2019',
@@ -86,5 +88,4 @@ export default {
                 }
             ]
         },
-    ]
-};
+    ];
