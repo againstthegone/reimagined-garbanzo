@@ -21,19 +21,29 @@
   "bugs": {
     "url": "https://github.com/robertchow89/reimagined-garbanzo/issues"
   },
+  "browserlist": [
+    "last 2 browser versions"
+  ],
   "homepage": "https://github.com/robertchow89/reimagined-garbanzo#readme",
   "devDependencies": {
+    "@babel/types": "^7.9.5",
     "@types/jest": "25.1.4",
     "@types/node": "13.9.5",
     "@types/papaparse": "^5.0.3",
+    "@types/systemjs": "^6.1.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
     "cpy-cli": "3.1.0",
     "jest": "25.2.4",
     "nodegit": "0.26.5",
+    "parcel-bundler": "^1.12.4",
     "ts-jest": "25.3.0",
     "ts-node": "8.8.1",
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "papaparse": "5.2.0"
+    "papaparse": "5.2.0",
+    "systemjs": "^6.2.6"
   }
 }
