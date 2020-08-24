@@ -1,0 +1,5 @@
+const TrendingSpecimenCasesNode = () => {
+    
+};
+
+export { TrendingSpecimenCasesNode };

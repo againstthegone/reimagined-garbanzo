@@ -1,49 +1,43 @@
 {
   "name": "reimagined-garbanzo",
-  "version": "1.0.0",
-  "description": "Covid-19 Dashboard",
-  "main": "dist/index.js",
-  "scripts": {
-    "install-external-dependencies": "node ./installExternalDependencies.js",
-    "clean": "rm -rf ./dist",
-    "prebuild": "npm run install-external-dependencies",
-    "build": "tsc & cpy '**/*.html' '../dist/' --cwd=src --parents",
-    "prestart": "npm run build",
-    "start": "node .",
-    "test": "jest --detectOpenHandles --colors"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robertchow89/reimagined-garbanzo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/robertchow89/reimagined-garbanzo/issues"
-  },
-  "browserlist": [
-    "last 2 browser versions"
-  ],
-  "homepage": "https://github.com/robertchow89/reimagined-garbanzo#readme",
-  "devDependencies": {
-    "@babel/types": "^7.9.5",
-    "@types/jest": "25.1.4",
-    "@types/node": "13.9.5",
-    "@types/papaparse": "^5.0.3",
-    "@types/systemjs": "^6.1.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-custom-element-classes": "^0.1.0",
-    "babel-plugin-transform-es2015-classes": "^6.24.1",
-    "cpy-cli": "3.1.0",
-    "jest": "25.2.4",
-    "nodegit": "0.26.5",
-    "parcel-bundler": "^1.12.4",
-    "ts-jest": "25.3.0",
-    "ts-node": "8.8.1",
-    "typescript": "3.8.3"
-  },
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "papaparse": "5.2.0",
-    "systemjs": "^6.2.6"
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "10.4.9",
+    "@testing-library/user-event": "12.1.2",
+    "@types/jest": "26.0.10",
+    "@types/node": "14.6.0",
+    "@types/react": "16.9.46",
+    "@types/react-dom": "16.9.8",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.3",
+    "typescript": "4.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "axios": "0.20.0",
+    "ts-jest": "26.2.0"
   }
 }
