@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { LowerTierLocalAuthorityAreaName } from "../LowerTierLocalAuthority";
-import { getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate } from '../CoronovirusDataGovUkApi/DataApi';
+import { getLowerTierLocalAuthorityNewCasesBySpecimanDate } from '../CoronovirusDataGovUkApi/DataApi';
 
 interface TrendingSpecimenCasesDataNodeProps {
     areaName: LowerTierLocalAuthorityAreaName;
 }
 
 const fetchAndCalculateTrendingLowerTierLocalAuthoritySpecimenNewCases = async (areaName: LowerTierLocalAuthorityAreaName) => {
-    const data = await getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate(areaName);
+    const data = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(areaName);
     const newCasesBySpecimenDates: number[] = data.map(d => d.newCasesBySpecimenDate);
     const runningWeeks: number[][] = newCasesBySpecimenDates.map((_: number, i: number, a: number[]) => [...a, ...new Array(7).fill(undefined)].slice(i, i + 7)).filter((week) => !week.includes(undefined));
     const runningAverage = runningWeeks.map((week) => week.reduce((a, b) => a + b)).map((total) => total / 7);

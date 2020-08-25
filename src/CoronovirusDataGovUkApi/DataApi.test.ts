@@ -1,4 +1,4 @@
-import { getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate, DailyNewCasesBySpecimanDateDatum } from './DataApi';
+import { getLowerTierLocalAuthorityNewCasesBySpecimanDate, NewCasesBySpecimanDateDatum } from './DataApi';
 import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthority';
 import axios from 'axios';
 
@@ -16,7 +16,7 @@ describe('DataApi', () => {
         }]);
     }
 
-    function mockFetchToRespondWith(cases: DailyNewCasesBySpecimanDateDatum[]) {
+    function mockFetchToRespondWith(cases: NewCasesBySpecimanDateDatum[]) {
         (global.fetch as jest.Mock).mockResolvedValue({
             json: () => ({
                 length: cases.length,
@@ -30,11 +30,11 @@ describe('DataApi', () => {
         (global.fetch as jest.Mock).mockImplementation((url) => axios.get(url).then(response => Promise.resolve(({ json: () => response.data }))));
     }
 
-    describe('getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate', () => {
+    describe('getLowerTierLocalAuthorityNewCasesBySpecimanDate', () => {
         it('calls the data url with the local authority passed in', () => {
             mockFetchToRespondAny();
 
-            getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Bolton);
+            getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Bolton);
             expect(global.fetch).toHaveBeenCalledWith('https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaName=Bolton&structure={"date":"date","newCasesBySpecimenDate":"newCasesBySpecimenDate"}');
         });
 
@@ -51,7 +51,7 @@ describe('DataApi', () => {
             ];
             mockFetchToRespondWith(mockResponse);
 
-            const result = await getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Oldham);
+            const result = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Oldham);
             expect(result).toEqual(mockResponse);
         });
 
@@ -59,18 +59,13 @@ describe('DataApi', () => {
         it('integrates directly with the data coronovirus api', async () => {
             mockFetchToPerformIntegration();
 
-            const today = new Date();
-            const todayIsoDate = today.toISOString().substring(0, 10);
-
-            const result = await getLowerTierLocalAuthorityDailyNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Stockport);
+            const result = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Stockport);
             expect(result).toEqual(expect.arrayContaining([
-                expect.objectContaining({
-                    date: todayIsoDate,
-                }),
                 {
                     date: '2020-03-01',
                     newCasesBySpecimenDate: 1,
-                }]));
+                }
+            ]));
         });
     });
 });

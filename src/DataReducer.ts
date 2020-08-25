@@ -1,3 +1,4 @@
+import { NewCasesBySpecimanDateDatum } from "./CoronovirusDataGovUkApi/DataApi";
 import { LowerTierLocalAuthorityAreaName } from "./LowerTierLocalAuthority";
 
 export enum DataStatus {
@@ -8,37 +9,59 @@ export enum DataStatus {
 
 export interface DataState {
     [key: string]: {
-        status: DataStatus
-        data: {
-            date: string;
-            newCasesBySpecimenDate: number;
-        }[];
+        status: DataStatus;
+        data?: NewCasesBySpecimanDateDatum[];
     };
 }
-
-export enum DataActionType {
+export enum DataEventType {
     REQUESTED,
     REJECTED,
     RESOLVED,
 }
 
 export interface HasDataActionType {
-    type: DataActionType
+    type: DataEventType
 }
 
-export const reduce = (state = {}, action?: DataRequested | DataResolved | DataRejected): DataState => {
-    if (action === undefined) {
+export const reduce = (state: DataState = {}, event?: DataRequestedEvent | DataResolvedEvent | DataRejectedEvent): DataState => {
+    if (event === undefined) {
         return state;
     }
 
-    switch (action.type) {
-
-    }
-    return state;
+    switch (event.type) {
+        case DataEventType.REQUESTED: {
+            return {
+                ...state,
+                [event.area]: {
+                    status: DataStatus.FETCHING,
+                },
+            };
+        }
+        case DataEventType.REJECTED: {
+            return { 
+                ...state,
+                [event.area]: {
+                    status: DataStatus.ERROR,
+                },
+            };
+        }
+        case DataEventType.RESOLVED: {
+            return { 
+                ...state,
+                [event.area]: {
+                    status: DataStatus.COMPLETE,
+                    data: event.data,
+                },
+            };
+        }
+        default: {
+            return state;
+        }
+    };
 }
 
-export class DataRequested {
-    readonly type = DataActionType.REQUESTED;
+export class DataRequestedEvent {
+    readonly type = DataEventType.REQUESTED;
     readonly area: LowerTierLocalAuthorityAreaName;
 
     constructor(area: LowerTierLocalAuthorityAreaName) {
@@ -46,8 +69,8 @@ export class DataRequested {
     }
 }
 
-export class DataRejected {
-    readonly type = DataActionType.REJECTED;
+export class DataRejectedEvent {
+    readonly type = DataEventType.REJECTED;
     readonly area: LowerTierLocalAuthorityAreaName;
 
     constructor(area: LowerTierLocalAuthorityAreaName) {
@@ -55,11 +78,13 @@ export class DataRejected {
     }
 }
 
-export class DataResolved {
-    readonly type = DataActionType.RESOLVED;
+export class DataResolvedEvent {
+    readonly type = DataEventType.RESOLVED;
     readonly area: LowerTierLocalAuthorityAreaName;
+    readonly data: NewCasesBySpecimanDateDatum[];
 
-    constructor(area: LowerTierLocalAuthorityAreaName) {
+    constructor(area: LowerTierLocalAuthorityAreaName, data: NewCasesBySpecimanDateDatum[]) {
         this.area = area;
+        this.data = data;
     }
 }
