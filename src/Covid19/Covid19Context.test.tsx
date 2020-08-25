@@ -3,11 +3,12 @@ import { render } from '@testing-library/react';
 import { Dispatch } from 'react';
 import { Covid19State, createDefaultCovid19State } from './Covid19State';
 import { Covid19Context, useCovid19Dispatch, useCovid19State } from './Covid19Context';
+import { Covid19Event } from './Covid19Event';
 
 describe('Covid19Context', () => {
     describe('useCovid19Dispatch', () => {
         it('retrieves the dispatch from the context', () => {
-            const mockDispatch: Dispatch<Covid19State> = jest.fn();
+            const mockDispatch: Dispatch<Covid19Event> = jest.fn();
             let covid19ContextDispatch;
 
             const UseCovid19Dispatch = () => {

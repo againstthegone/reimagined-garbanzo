@@ -1,8 +1,9 @@
 import { createContext, Dispatch, useContext } from "react";
+import { Covid19Event } from './Covid19Event';
 import { Covid19State, createDefaultCovid19State } from './Covid19State';
 
 interface Covid19ContextValue { 
-    dispatch: Dispatch<Covid19State>;
+    dispatch: Dispatch<Covid19Event>;
     state: Covid19State;
 };
 
