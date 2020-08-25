@@ -1,7 +1,7 @@
 import { NewCasesBySpecimenDateDatum } from '../CoronovirusDataGovUkApi/NewCasesBySpecimenDateDatum';
 import { Covid19EventType } from '../Covid19/Covid19EventType';
 import { Covid19State } from '../Covid19/Covid19State';
-import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthorityAreaName';
+import { LowerTierLocalAuthorityAreaName } from '../CoronovirusDataGovUkApi/LowerTierLocalAuthorityAreaName';
 import { AreaDataStatus } from './AreaDataStatus';
 
 export class AreaDataResolvedEvent {

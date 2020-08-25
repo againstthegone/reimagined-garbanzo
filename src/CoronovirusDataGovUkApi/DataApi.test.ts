@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { getLowerTierLocalAuthorityNewCasesBySpecimanDate } from './DataApi';
-import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthorityAreaName';
+import { LowerTierLocalAuthorityAreaName } from './LowerTierLocalAuthorityAreaName';
 import { NewCasesBySpecimenDateDatum } from './NewCasesBySpecimenDateDatum';
 
 describe('DataApi', () => {

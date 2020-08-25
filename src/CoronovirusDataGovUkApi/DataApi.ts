@@ -1,4 +1,4 @@
-import { LowerTierLocalAuthorityAreaName } from "../LowerTierLocalAuthorityAreaName";
+import { LowerTierLocalAuthorityAreaName } from "./LowerTierLocalAuthorityAreaName";
 import { NewCasesBySpecimenDateDatum } from './NewCasesBySpecimenDateDatum';
 
 const DATA_URL = 'https://api.coronavirus.data.gov.uk/v1/data';

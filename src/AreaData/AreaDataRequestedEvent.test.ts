@@ -1,4 +1,4 @@
-import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthorityAreaName';
+import { LowerTierLocalAuthorityAreaName } from '../CoronovirusDataGovUkApi/LowerTierLocalAuthorityAreaName';
 import { AreaDataRequestedEvent, handleAreaDataRequestedEvent } from './AreaDataRequestedEvent';
 import { AreaDataStatus } from './AreaDataStatus';
 

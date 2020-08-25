@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch } from 'react';
-import { TimeFrameChangedEvent } from './TimeFrame/TimeFrameChangedEvent';
+import { TimeFrameChangedEvent } from './TimeFrameChangedEvent';
 
 export const TimeFrameControl = () => {
     

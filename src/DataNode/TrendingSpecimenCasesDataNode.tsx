@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { LowerTierLocalAuthorityAreaName } from "../LowerTierLocalAuthorityAreaName";
+import { LowerTierLocalAuthorityAreaName } from "../CoronovirusDataGovUkApi/LowerTierLocalAuthorityAreaName";
 import { getLowerTierLocalAuthorityNewCasesBySpecimanDate } from '../CoronovirusDataGovUkApi/DataApi';
 
 interface TrendingSpecimenCasesDataNodeProps {

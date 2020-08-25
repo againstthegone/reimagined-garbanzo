@@ -1,6 +1,6 @@
 import React, { createContext, Dispatch, useContext, useMemo, useReducer } from 'react';
 import './App.css';
-import { TimeFrameControl } from './TimeFrameControl';
+import { TimeFrameControl } from './TimeFrame/TimeFrameControl';
 
 const App = () => {
 

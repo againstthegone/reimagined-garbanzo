@@ -1,4 +1,4 @@
-import { LowerTierLocalAuthorityAreaName } from "../LowerTierLocalAuthorityAreaName";
+import { LowerTierLocalAuthorityAreaName } from "../CoronovirusDataGovUkApi/LowerTierLocalAuthorityAreaName";
 
 const LOCATIONS: { [key in LowerTierLocalAuthorityAreaName]: [number, number] } = {
     Bolton: [0, 1],

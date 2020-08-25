@@ -2,7 +2,7 @@ import * as AreaDataRequestedEvent from '../AreaData/AreaDataRequestedEvent';
 import * as AreaDataRejectedEvent from '../AreaData/AreaDataRejectedEvent';
 import * as AreaDataResolvedEvent from '../AreaData/AreaDataResolvedEvent';
 import * as TimeFrameChangedEvent from '../TimeFrame/TimeFrameChangedEvent';
-import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthorityAreaName';
+import { LowerTierLocalAuthorityAreaName } from '../CoronovirusDataGovUkApi/LowerTierLocalAuthorityAreaName';
 import { handleCovid19Event } from './Covid19Event';
 import { createDefaultCovid19State } from './Covid19State';
 
