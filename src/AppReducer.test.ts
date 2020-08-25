@@ -1,24 +1,24 @@
-import { reduce, DataStatus, DataRequestedEvent, DataRejectedEvent, DataResolvedEvent } from "./AppReducer";
+import { reduce, DataStatus, DataRequestedEvent, DataRejectedEvent, DataResolvedEvent, TimeFrameChangedEvent } from "./AppReducer";
 import { LowerTierLocalAuthorityAreaName } from "./LowerTierLocalAuthority";
 
 describe('AppReducer', () => {
     describe('reduce', () => {
         it('creates an initial state with a timeframe and no data', () => {
             expect(reduce()).toEqual({
-                timeFrame: 0,
                 data: {},
+                timeFrame: 0,
             });
         });
 
         it('marks a location as fetching when reducing a DataRequested event', () => {
             const state = {
-                timeFrame: 0,
                 data: {
                     [LowerTierLocalAuthorityAreaName.Bolton]: {
                         status: DataStatus.COMPLETE,
                         data: [],
                     },
-                }
+                },
+                timeFrame: 0,
             };
             expect(reduce(state, new DataRequestedEvent(LowerTierLocalAuthorityAreaName.Salford))).toEqual({
                 ...state,
@@ -33,12 +33,12 @@ describe('AppReducer', () => {
 
         it('marks a location as error when reducing a DataRejected event', () => {
             const state = {
-                timeFrame: 0,
                 data: {
                     [LowerTierLocalAuthorityAreaName.Trafford]: {
                         status: DataStatus.FETCHING,
                     },
                 },
+                timeFrame: 0,
             };
             expect(reduce(state, new DataRejectedEvent(LowerTierLocalAuthorityAreaName.Trafford))).toEqual({
                 ...state,
@@ -52,7 +52,6 @@ describe('AppReducer', () => {
 
         it('marks a location as complete with data when reducing a DataResolved event', () => {
             const state = {
-                timeFrame: 0,
                 data: {
                     [LowerTierLocalAuthorityAreaName.Manchester]: {
                         status: DataStatus.ERROR,
@@ -61,6 +60,7 @@ describe('AppReducer', () => {
                         status: DataStatus.FETCHING,
                     },
                 },
+                timeFrame: 0,
             };
             const data = [
                 {
@@ -82,6 +82,18 @@ describe('AppReducer', () => {
                     },
                 },
             })
+        });
+
+        it('updates the time frame when changed', () => {
+            const state = {
+                data: {},
+                timeFrame: 1,
+            };
+
+            expect(reduce(state, new TimeFrameChangedEvent(3))).toEqual({
+                ...state,
+                timeFrame: 3,
+            });
         });
     });
 });

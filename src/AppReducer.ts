@@ -15,13 +15,14 @@ export enum AppEventType {
     DATA_REQUESTED,
     DATA_REJECTED,
     DATA_RESOLVED,
+    TIME_FRAME_CHANGED,
 }
 
-type AppEvent = DataRequestedEvent | DataResolvedEvent | DataRejectedEvent;
+type AppEvent = TimeFrameChangedEvent | DataRequestedEvent | DataResolvedEvent | DataRejectedEvent;
 
 const INITIAL_STATE: AppState = {
-    timeFrame: 0,
     data: {},
+    timeFrame: 0,
 };
 
 export const reduce = (state = INITIAL_STATE, event?: AppEvent): AppState => {
@@ -33,6 +34,7 @@ export const reduce = (state = INITIAL_STATE, event?: AppEvent): AppState => {
         case AppEventType.DATA_REQUESTED: return handleDataRequestedEvent(state, event);
         case AppEventType.DATA_REJECTED: return handleDataRejectedEvent(state, event);
         case AppEventType.DATA_RESOLVED: return handleDataResolvedEvent(state, event);
+        case AppEventType.TIME_FRAME_CHANGED: return handleTimeFrameChangedEvent(state, event);
         default: return state;
     };
 }
@@ -106,5 +108,21 @@ function handleDataResolvedEvent(state: AppState, event: DataResolvedEvent): App
                 data: event.data,
             },
         },
+    };
+}
+
+export class TimeFrameChangedEvent {
+    readonly type = AppEventType.TIME_FRAME_CHANGED;
+    readonly timeFrame: number;
+
+    constructor(timeFrame: number) {
+        this.timeFrame = timeFrame;
+    }
+}
+
+function handleTimeFrameChangedEvent(state: AppState, event: TimeFrameChangedEvent) {
+    return {
+        ...state,
+        timeFrame: event.timeFrame,
     };
 }
