@@ -1,0 +1,6 @@
+export enum Covid19EventType {
+    AREA_DATA_REQUESTED,
+    AREA_DATA_REJECTED,
+    AREA_DATA_RESOLVED,
+    TIME_FRAME_CHANGED,
+}

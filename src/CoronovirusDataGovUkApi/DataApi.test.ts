@@ -1,6 +1,7 @@
-import { getLowerTierLocalAuthorityNewCasesBySpecimanDate, NewCasesBySpecimanDateDatum } from './DataApi';
-import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthority';
 import axios from 'axios';
+import { getLowerTierLocalAuthorityNewCasesBySpecimanDate } from './DataApi';
+import { LowerTierLocalAuthorityAreaName } from '../LowerTierLocalAuthorityAreaName';
+import { NewCasesBySpecimenDateDatum } from './NewCasesBySpecimenDateDatum';
 
 describe('DataApi', () => {
 
@@ -16,7 +17,7 @@ describe('DataApi', () => {
         }]);
     }
 
-    function mockFetchToRespondWith(cases: NewCasesBySpecimanDateDatum[]) {
+    function mockFetchToRespondWith(cases: NewCasesBySpecimenDateDatum[]) {
         (global.fetch as jest.Mock).mockResolvedValue({
             json: () => ({
                 length: cases.length,
