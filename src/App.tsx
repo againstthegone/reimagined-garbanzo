@@ -1,52 +1,26 @@
-import React, { createContext, Dispatch, useContext, useMemo, useReducer } from 'react';
-import './App.css';
+import React, { useMemo, useReducer } from 'react';
+import './App.scss';
+import { Covid19Context } from './Covid19/Covid19Context';
+import { handleCovid19Event } from './Covid19/Covid19Event';
+import { createDefaultCovid19State } from './Covid19/Covid19State';
+import { GreaterManchesterNodeCanvas } from './DataNode/GreaterManchesterDataNodeCanvas';
 import { TimeFrameControl } from './TimeFrame/TimeFrameControl';
 
 const App = () => {
 
+  const [covid19State, covid19Dispatch] = useReducer(handleCovid19Event, createDefaultCovid19State());
+
+  const covid19Context = useMemo(() => ({
+    dispatch: covid19Dispatch,
+    state: covid19State,
+  }), [covid19Dispatch, covid19State]);
+
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-      <TimeFrameControl />
-      {/* {isPending && (<div>Loading...</div>)}
-      {isResolved && (
-        <>
-          <div>{frameIndex}: {data[frameIndex]}</div>
-          <div style={{ fontSize: 0 }}>
-            <div className='node-row'>
-              <NoDataNode></NoDataNode>
-              <NoDataNode></NoDataNode>
-              <NoDataNode></NoDataNode>
-            </div>
-            <div className='node-row'>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Bolton}></TrendingSpecimenCasesDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Rochdale}></TrendingSpecimenCasesDataNode>
-              <NoDataNode></NoDataNode>
-            </div>
-            <div className='node-row'>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Wigan}></TrendingSpecimenCasesDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Bury}></TrendingSpecimenCasesDataNode>
-              <NoDataNode></NoDataNode>
-            </div>
-            <div className='node-row'>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Salford}></TrendingSpecimenCasesDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Oldham}></TrendingSpecimenCasesDataNode>
-              <NoDataNode></NoDataNode>
-            </div>
-            <div className='node-row'>
-              <NoDataNode></NoDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Manchester}></TrendingSpecimenCasesDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Tameside}></TrendingSpecimenCasesDataNode>
-            </div>
-            <div className='node-row'>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Trafford}></TrendingSpecimenCasesDataNode>
-              <TrendingSpecimenCasesDataNode areaName={LowerTierLocalAuthorityAreaName.Stockport}></TrendingSpecimenCasesDataNode>
-              <NoDataNode></NoDataNode>
-            </div>
-          </div>
-          <div style={{ display: 'inline-block', width: data[frameIndex], height: data[frameIndex], backgroundColor: 'red', borderRadius: '100%' }}></div>
-        </>
-      )}
-      {isRejected && (<div>{error}</div>)} */}
+      <Covid19Context.Provider value={covid19Context}>
+        <GreaterManchesterNodeCanvas />
+        <TimeFrameControl />
+      </Covid19Context.Provider>
     </div>
   );
 }

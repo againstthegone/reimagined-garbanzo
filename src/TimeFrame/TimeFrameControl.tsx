@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useCovid19Dispatch } from '../Covid19/Covid19Context';
 import { TimeFrameChangedEvent } from './TimeFrameChangedEvent';
 

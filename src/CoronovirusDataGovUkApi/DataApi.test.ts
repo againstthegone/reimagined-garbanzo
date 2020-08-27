@@ -2,12 +2,17 @@ import axios from 'axios';
 import { getLowerTierLocalAuthorityNewCasesBySpecimanDate } from './DataApi';
 import { LowerTierLocalAuthorityAreaName } from './LowerTierLocalAuthorityAreaName';
 import { NewCasesBySpecimenDateDatum } from './NewCasesBySpecimenDateDatum';
+import { CoronovirusDataGovUkEnvironment } from './CoronovirusDataGovUkEnvironment';
+import { getCoronovirusDataGovUkEnvironment } from '../config';
+
+jest.mock('../config');
 
 describe('DataApi', () => {
 
     beforeEach(() => {
         jest.resetAllMocks();
         global.fetch = jest.fn();
+        (getCoronovirusDataGovUkEnvironment as jest.Mock<CoronovirusDataGovUkEnvironment>).mockReturnValue(CoronovirusDataGovUkEnvironment.PRODUCTION);
     });
 
     function mockFetchToRespondAny() {
@@ -57,16 +62,34 @@ describe('DataApi', () => {
         });
 
 
-        it('integrates directly with the data coronovirus api', async () => {
-            mockFetchToPerformIntegration();
+        describe('Integration Test', () => {
+            it('integrates directly with the production data coronovirus api', async () => {
+                (getCoronovirusDataGovUkEnvironment as jest.Mock<CoronovirusDataGovUkEnvironment>).mockReturnValue(CoronovirusDataGovUkEnvironment.PRODUCTION);
 
-            const result = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Stockport);
-            expect(result).toEqual(expect.arrayContaining([
-                {
-                    date: '2020-03-01',
-                    newCasesBySpecimenDate: 1,
-                }
-            ]));
+                mockFetchToPerformIntegration();
+
+                const result = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Stockport);
+                expect(result).toEqual(expect.arrayContaining([
+                    {
+                        date: '2020-03-01',
+                        newCasesBySpecimenDate: 1,
+                    }
+                ]));
+            });
+
+            it('integrates directly with the data coronovirus api on staging', async () => {
+                (getCoronovirusDataGovUkEnvironment as jest.Mock<CoronovirusDataGovUkEnvironment>).mockReturnValue(CoronovirusDataGovUkEnvironment.STAGING);
+
+                mockFetchToPerformIntegration();
+
+                const result = await getLowerTierLocalAuthorityNewCasesBySpecimanDate(LowerTierLocalAuthorityAreaName.Stockport);
+                expect(result).toEqual(expect.arrayContaining([
+                    {
+                        date: '2020-03-01',
+                        newCasesBySpecimenDate: 1,
+                    }
+                ]));
+            });
         });
     });
 });
