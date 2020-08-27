@@ -7,5 +7,5 @@ interface NewCasesBySpecimenDateDataNodeProps {
 }
 
 export const NewCasesBySpecimenDateDataNode = ({ area }: NewCasesBySpecimenDateDataNodeProps) => {
-    return (<Node backgroundColor='cyan'/>)
+    return (<Node backgroundColor='cyan' area={area}/>)
 };

@@ -69,8 +69,13 @@ $display-node-margin: 2px;
 
 .node-text {
   width: $display-node-vertex-to-vertex-length;
-  height: $display-node-side-to-side-length;
+  height: $display-node-side-to-side-length - ($display-node-margin * 2);
   position: absolute;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+  font-size: 10px;
+  transform: rotate(-60deg);
 }
 
 .node-top,
