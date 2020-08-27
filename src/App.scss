@@ -1,5 +1,3 @@
-$use: 'sass:math' as math;
-
 .App {
   text-align: center;
 }
@@ -95,3 +93,6 @@ $display-node-margin: 2px;
   border-top-width: $display-node-side-to-side-length / 2;
 }
 
+.time-frame-control {
+  text-align: right;
+}
