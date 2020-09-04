@@ -37,6 +37,11 @@
   }
 }
 
+input[type='range'] {
+  width: 100%;
+  margin: 2px 0;
+}
+
 $sqrt3: 1.73205080757;
 $display-node-side-to-side-length: 100px;
 $display-node-vertex-to-vertex-length: $display-node-side-to-side-length * 2 / $sqrt3;
@@ -45,6 +50,7 @@ $display-node-margin: 2px;
 .node-canvas {
   position: relative;
   font-size: 0;
+  overflow: hidden;
 }
 
 .node-row {
