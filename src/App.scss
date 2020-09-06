@@ -73,15 +73,25 @@ $display-node-margin: 2px;
   margin: $display-node-margin (($display-node-margin * 2 / $sqrt3) + ($display-node-vertex-to-vertex-length / 4));
 }
 
-.node-text {
+.node-title,
+.node-datum {
   width: $display-node-vertex-to-vertex-length;
   height: $display-node-side-to-side-length - ($display-node-margin * 2);
   position: absolute;
+  display: flex;
+}
+
+.node-title {
   justify-content: center;
   align-items: flex-start;
-  display: flex;
   font-size: 10px;
   transform: rotate(-60deg);
+}
+
+.node-datum {
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 
 .node-top,
