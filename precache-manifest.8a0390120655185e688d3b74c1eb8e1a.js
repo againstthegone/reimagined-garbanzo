@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51c660474fb5d860c706931b5a1d22a8",
+    "revision": "ec2c04373aa162c306678f26a5128b1d",
     "url": "/reimagined-garbanzo/index.html"
   },
   {
-    "revision": "18e78f99a7064c938d91",
-    "url": "/reimagined-garbanzo/static/css/main.db9dfe32.chunk.css"
+    "revision": "e2ba8e66a4440f0acbd2",
+    "url": "/reimagined-garbanzo/static/css/main.e5745baf.chunk.css"
   },
   {
     "revision": "b6702e9c262575b36fa0",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reimagined-garbanzo/static/js/2.2e1e2b69.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "18e78f99a7064c938d91",
-    "url": "/reimagined-garbanzo/static/js/main.16a63ebe.chunk.js"
+    "revision": "e2ba8e66a4440f0acbd2",
+    "url": "/reimagined-garbanzo/static/js/main.0b800b0b.chunk.js"
   },
   {
     "revision": "4504e2135f23cbf84d03",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/reimagined-garbanzo/precache-manifest.4bd3e4c77147082a37b879bde5bffba9.js"
+  "/reimagined-garbanzo/precache-manifest.8a0390120655185e688d3b74c1eb8e1a.js"
 );
 
 self.addEventListener('message', (event) => {
