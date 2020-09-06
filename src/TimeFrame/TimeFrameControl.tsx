@@ -25,6 +25,6 @@ export const TimeFrameControl = () => {
 
     return (<div className='time-frame-control'>
         <div>{new Date(BASE_DATE_TIME + (timeFrame * MILLIS_PER_DAY)).toISOString().substring(0, 10)}</div>
-        <input type='range' aria-label='input-range' onChange={onChange} value={timeFrame} min='0' max={daysSinceBaseDate} />
+        <input type='range' aria-label='input-range' onChange={onChange} value={timeFrame} min='0' max={daysSinceBaseDate} autoFocus/>
     </div>);
 }

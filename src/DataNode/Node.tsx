@@ -13,7 +13,7 @@ export const Node = ({ backgroundColor = 'transparent', area, datum }: NodeProps
             <div className='node-top' style={{ borderBottomColor: backgroundColor }} data-testid='node-top' ></div>
             <div className='node-bottom' style={{ borderTopColor: backgroundColor }} data-testid='node-bottom'></div>
             { (area !== undefined) && (<div className='node-title'>{area}</div>) }
-            { (datum !== undefined) && (<div className='node-datum'>{datum}</div>)}
+            { (datum !== undefined) && (<div className='node-datum' style={{fontSize:`${Math.min(datum ^ 2, 30)}px`}}>{datum}</div>)}
         </div>
     );
 }

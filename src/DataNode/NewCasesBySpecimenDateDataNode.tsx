@@ -28,7 +28,7 @@ export const NewCasesBySpecimenDateDataNode = ({ area }: NewCasesBySpecimenDateD
             return '#eee';
         }
         else {
-            return `rgb(255, ${Math.max(0, 255 - (datum ^ 4))}, ${Math.max(0, 255 - (datum ^ 4))})`;
+            return `rgb(255, ${Math.max(0, 255 - (datum ^ 2))}, ${Math.max(0, 255 - (datum ^ 2))})`;
         }
     }, [status, datum])
 
