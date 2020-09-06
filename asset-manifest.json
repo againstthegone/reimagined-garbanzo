@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/reimagined-garbanzo/static/css/main.e5745baf.chunk.css",
-    "main.js": "/reimagined-garbanzo/static/js/main.0b800b0b.chunk.js",
-    "main.js.map": "/reimagined-garbanzo/static/js/main.0b800b0b.chunk.js.map",
+    "main.js": "/reimagined-garbanzo/static/js/main.8fc0e728.chunk.js",
+    "main.js.map": "/reimagined-garbanzo/static/js/main.8fc0e728.chunk.js.map",
     "runtime-main.js": "/reimagined-garbanzo/static/js/runtime-main.5c73478c.js",
     "runtime-main.js.map": "/reimagined-garbanzo/static/js/runtime-main.5c73478c.js.map",
     "static/js/2.2e1e2b69.chunk.js": "/reimagined-garbanzo/static/js/2.2e1e2b69.chunk.js",
     "static/js/2.2e1e2b69.chunk.js.map": "/reimagined-garbanzo/static/js/2.2e1e2b69.chunk.js.map",
     "index.html": "/reimagined-garbanzo/index.html",
-    "precache-manifest.8a0390120655185e688d3b74c1eb8e1a.js": "/reimagined-garbanzo/precache-manifest.8a0390120655185e688d3b74c1eb8e1a.js",
+    "precache-manifest.c23a1461b1c3d6fe0b99a9fa55f58c73.js": "/reimagined-garbanzo/precache-manifest.c23a1461b1c3d6fe0b99a9fa55f58c73.js",
     "service-worker.js": "/reimagined-garbanzo/service-worker.js",
     "static/css/main.e5745baf.chunk.css.map": "/reimagined-garbanzo/static/css/main.e5745baf.chunk.css.map",
     "static/js/2.2e1e2b69.chunk.js.LICENSE.txt": "/reimagined-garbanzo/static/js/2.2e1e2b69.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5c73478c.js",
     "static/js/2.2e1e2b69.chunk.js",
     "static/css/main.e5745baf.chunk.css",
-    "static/js/main.0b800b0b.chunk.js"
+    "static/js/main.8fc0e728.chunk.js"
   ]
 }
